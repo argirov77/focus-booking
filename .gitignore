@@ -240,4 +240,8 @@ celerybeat-schedule
 # macOS
 .DS_Store
 .AppleDouble
-.LSOverride 
+.LSOverride
+
+# Allow frontend client utilities
+!focus-booking-web/src/lib/
+!focus-booking-web/src/lib/**
