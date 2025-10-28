@@ -105,6 +105,25 @@ services:
       - ./app:/app/app
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
+  frontend:
+    container_name: focus-booking-frontend
+    build:
+      context: ./focus-booking-web
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./focus-booking-web:/app
+      - /app/node_modules
+    depends_on:
+      - app
+    command: sh -c "npm install && npm run dev"
+    networks:
+      - app-network
+
   # Celery worker
   celery_worker:
     container_name: reservation-celery-worker
