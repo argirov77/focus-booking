@@ -76,7 +76,6 @@ This will start the following services:
 - Sentry (http://localhost:9000)
 - Celery worker
 - Celery Flower (http://localhost:5555)
-- Focus Booking frontend (http://localhost:3001)
 
 3. Seed the database with initial data:
 ```bash
